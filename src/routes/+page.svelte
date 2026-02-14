@@ -6,7 +6,8 @@
   <h1 class="text-4xl font-bold text-rose-600 mb-8"></h1>
   
   <Polaroid 
-    photo="/photos/our-first-date.jpg" 
+    image="/photos/our-first-date.jpg" 
+    caption="sample"
     backText="The day everything changed. I still have the receipt from dinner!"
   />
 </main>

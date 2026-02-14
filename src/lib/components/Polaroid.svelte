@@ -1,62 +1,101 @@
-<!-- Polaroid component to show her beaautiful face-->
-
 <script lang="ts">
-    // dont change these. actually, why are you even here?
-    interface Polaroid {
-        photo: string;
-        backText: string; 
-    }
+	import { spring } from 'svelte/motion';
 
-    let { photo, backText }: Polaroid = $props();
+	let { image, caption, backText } = $props<{
+		image: string;
+		caption: string;
+		backText: string;
+	}>();
 
-    // Flipping the polaroid around
-    let isFlipped = $state(false);
-    function toggleFlip() 
-    {
-        isFlipped = !isFlipped;
-    }
+	let isFlipped = $state(false);
 
+	const tilt = spring({ x: 0, y: 0 }, { stiffness: 0.1, damping: 0.4 });
+
+	function handleMouseMove(e: MouseEvent) {
+		const card = e.currentTarget as HTMLElement;
+		const { width, height, left, top } = card.getBoundingClientRect();
+		const x = (e.clientX - left) / width - 0.5;
+		const y = (e.clientY - top) / height - 0.5;
+		tilt.set({ x: x * 20, y: y * -20 });
+	}
+
+	function resetTilt() {
+		tilt.set({ x: 0, y: 0 });
+	}
 </script>
 
-
-<div 
-  class="group my-12 mx-auto cursor-pointer w-72 aspect-[3/4] [perspective:1000px]"
-  onclick={toggleFlip}
-  role="presentation"
+<div
+	class="group perspective-1000 my-12 mx-auto cursor-pointer w-72 h-96 relative"
+	onmousemove={handleMouseMove}
+	onmouseleave={resetTilt}
+	onclick={() => (isFlipped = !isFlipped)}
+	role="presentation"
 >
-  <div 
-    class="relative w-full h-full duration-700 [transform-style:preserve-3d] transition-all ease-in-out border border-gray-200 bg-white shadow-xl"
-    class:is-flipped={isFlipped}
-  >
-    
-    <div class="absolute inset-0 p-4 pb-16 bg-white flex flex-col [backface-visibility:hidden]">
-      <div class="aspect-square w-full bg-gray-50 overflow-hidden border border-gray-100">
-        <img src={photo} alt="" class="w-full h-full object-cover" />
-      </div>
-      <div class="flex-grow flex items-center justify-center">
-         <span class="font-serif text-lg italic text-gray-800"></span>
-      </div>
-    </div>
+	<div
+		class="relative w-full h-full duration-500 preserve-3d transition-transform ease-out"
+		style:transform={`rotateY(${isFlipped ? 180 : 0}deg) rotateY(${$tilt.x}deg) rotateX(${$tilt.y}deg)`}
+	>
+		<div
+			class="absolute -right-4 -bottom-4 w-full h-full bg-indigo-600 rounded-sm -z-10 transform -rotate-2 outline-[1px] outline-transparent translate-z-0"
+		></div>
 
-    <div class="absolute inset-0 p-8 bg-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]">
-       <p class="font-serif text-center italic text-gray-600 leading-relaxed">{backText}</p>
-    </div>
-  </div>
+		<div 
+      class="relative w-full h-full preserve-3d shadow-[0_0_0_2px_#111827] bg-amber-50"
+    >
+			
+			<div 
+        class="absolute inset-0 bg-amber-50 flex flex-col p-4 pb-16 outline-[1px] outline-transparent"
+        style="backface-visibility: hidden; -webkit-backface-visibility: hidden;"
+      >
+				<div
+					class="absolute inset-0 opacity-20 pointer-events-none z-50"
+					style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%221%22/%3E%3C/svg%3E');"
+				></div>
+
+        <div class="aspect-square w-full bg-indigo-200 overflow-hidden relative shadow-[0_0_0_2px_#111827]">
+					<img
+						src={image}
+						alt={caption}
+						class="w-full h-full object-cover grayscale-[20%] sepia-[30%] contrast-125"
+					/>
+				</div>
+				<div class="flex-grow flex items-center justify-center">
+					<span
+						class="font-serif text-xl italic font-bold text-gray-900 tracking-tighter"
+						style="font-family: 'Courier New', monospace;">{caption}</span
+					>
+				</div>
+			</div>
+
+			<div
+				class="absolute inset-0 bg-amber-50 flex items-center justify-center p-8 outline-[1px] outline-transparent"
+        style="transform: rotateY(180deg); backface-visibility: hidden; -webkit-backface-visibility: hidden;"
+			>
+				<div
+					class="absolute inset-0 opacity-20 pointer-events-none z-50"
+					style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%221%22/%3E%3C/svg%3E');"
+				></div>
+
+        <div class="border-2 border-dashed border-gray-300 p-6 w-full h-full flex items-center justify-center">
+					<p class="font-mono text-center text-sm font-bold text-indigo-900 leading-relaxed">
+						{backText}
+					</p>
+				</div>
+			</div>
+
+		</div>
+	</div>
 </div>
 
 <style>
-  /* 1. The Hover Tilt 
-     We target the inner card directly for the tilt.
-     'group-hover' allows the wrapper to trigger the child's movement.
-  */
-  .group:hover .relative:not(.is-flipped) {
-    transform: rotateY(10deg) rotateX(5deg);
-    box-shadow: 25px 25px 50px -12px rgba(0, 0, 0, 0.25); /* Deep shadow on lift */
-  }
-
-  /* 2. The Flip */
-  .is-flipped {
-    transform: rotateY(180deg);
-    box-shadow: -25px 25px 50px -12px rgba(0, 0, 0, 0.25); /* Reverse shadow when flipped */
+	.perspective-1000 {
+		perspective: 1000px;
+	}
+	.preserve-3d {
+		transform-style: preserve-3d;
+	}
+  /* Force hardware acceleration for smoother edges */
+  .translate-z-0 {
+    transform: translateZ(0);
   }
 </style>
