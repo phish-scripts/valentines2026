@@ -94,9 +94,9 @@
 </script>
 
 <div class="min-h-screen bg-neutral-50 flex flex-col items-center justify-center p-4">
-  <h1 class="text-4xl font-bold text-gray-800 mb-8 font-serif italic">To: Eva</h1>
+  <h1 class="text-4xl font-bold text-white mb-8 font-serif italic bg-black p-5">To: Eva</h1>
   
   <Carousel {memories} />
   
-  <p class="mt-8 text-sm text-gray-400">Flip to read each memory.</p>
+  <p class="mt-8 text-sm bg-black text-white p-2">Flip to read each memory.</p>
 </div>

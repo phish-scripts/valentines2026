@@ -76,16 +76,17 @@
 			❯
 		</button>
 	</div>
+    
 
 	<div class="flex justify-center items-center gap-3 mt-6">
 		{#each memories as _, i}
 			<button
 				onclick={() => scrollToIndex(i)}
 				aria-label="Go to slide {i + 1}"
-				class="transition-all duration-300 ease-out shadow-sm rounded-sm
+				class="transition-all duration-300 ease-out shadow-sm rounded-none border border-black
           {currentIndex === i
-					? 'w-4 h-4 bg-indigo-600 scale-125 shadow-indigo-500/50 rotate-3' 
-					: 'w-3 h-3 bg-gray-300 hover:bg-indigo-300 hover:scale-110 -rotate-3'}"
+					? 'w-4 h-4 bg-primary scale-125 rotate-3 shadow-md' 
+					: 'w-3 h-3 bg-base-300 hover:bg-secondary hover:scale-110 -rotate-3'}"
 			></button>
 		{/each}
 	</div>
