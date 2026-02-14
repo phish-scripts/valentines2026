@@ -63,18 +63,22 @@
 		class="absolute flex justify-between transform -translate-y-1/2 left-0 right-0 top-1/2 pointer-events-none px-4"
 	>
 		<button
-			onclick={prev}
-			class="btn btn-circle glass text-indigo-900 pointer-events-auto shadow-lg hover:scale-110 transition-transform border-none bg-white/50 backdrop-blur-sm"
-		>
-			❮
-		</button>
+            onclick={prev}
+            class="btn btn-square bg-amber-50 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] 
+            hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none 
+            transition-all active:bg-indigo-100 pointer-events-auto"
+        >
+            <span class="text-2xl font-bold text-indigo-900">❮</span>
+        </button>
 
 		<button
-			onclick={next}
-			class="btn btn-circle glass text-indigo-900 pointer-events-auto shadow-lg hover:scale-110 transition-transform border-none bg-white/50 backdrop-blur-sm"
-		>
-			❯
-		</button>
+            onclick={next}
+            class="btn btn-square bg-amber-50 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] 
+            hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none 
+            transition-all active:bg-indigo-100 pointer-events-auto"
+        >
+            <span class="text-2xl font-bold">❯</span>
+        </button>
 	</div>
     
 
