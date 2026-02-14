@@ -1,5 +1,9 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 @plugin 'daisyui' {
-	theme: 'retro';
+	/* This tells DaisyUI to use retro as the primary theme */
+	themes:
+		retro --default,
+		light,
+		dark;
 }
