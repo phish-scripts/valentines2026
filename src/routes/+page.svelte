@@ -11,7 +11,7 @@
     {
       image: "/photos/evaBanhMi.png",
       caption: "\"Paris Banh Mi\"",
-      backText: "I love the way you are looking at me. I could look at you forever"
+      backText: "I love the way you are looking at me. I could look at you forever."
     },
     {
       image: "/photos/evaBarnesAndNoble1.png",
@@ -20,74 +20,74 @@
     },
     {
       image: "/photos/evaBarnesAndNobleAlt.png",
-      caption: "Morning Brew",
-      backText: "I still remember your order: Iced Oat Latte, two pumps of vanilla."
+      caption: "\"Matcha\"",
+      backText: "Your eyes twinkle like stars; I love looking at them."
     },
     {
       image: "/photos/evaBarnesAndNobleAlt4.png",
-      caption: "Morning Brew",
-      backText: "I still remember your order: Iced Oat Latte, two pumps of vanilla."
+      caption: "\"Pose\"",
+      backText: "You are so fineeee."
     },
     {
       image: "/photos/evaBarnesAndNobleAlt5.png",
-      caption: "Morning Brew",
-      backText: "I still remember your order: Iced Oat Latte, two pumps of vanilla."
+      caption: "\"Reading\"",
+      backText: "I didn't expect that reading with you at barnes & noble would change my life. But then again, each experience with you changes my life for the better."
     },
     {
       image: "/photos/evaCar4.png",
-      caption: "Morning Brew",
-      backText: "I still remember your order: Iced Oat Latte, two pumps of vanilla."
+      caption: "\";3\"",
+      backText: "they big :3"
     },
     {
       image: "/photos/evaKpot4.png",
-      caption: "Morning Brew",
-      backText: "I still remember your order: Iced Oat Latte, two pumps of vanilla."
+      caption: "\"KPot Pt.1\"",
+      backText: "You look so hot when you eat."
     },
     {
       image: "/photos/evaPrincesTeaHouse.png",
-      caption: "Morning Brew",
-      backText: "I still remember your order: Iced Oat Latte, two pumps of vanilla."
+      caption: "\"Prince Tea House\"",
+      backText: ""
     },
     {
       image: "/photos/evaSubway.png",
-      caption: "Morning Brew",
-      backText: "I still remember your order: Iced Oat Latte, two pumps of vanilla."
+      caption: "\"Subway\"",
+      backText: "I loved holding you on the subway."
     },
     {
       image: "/photos/happyBirthdayEva3.png",
-      caption: "Morning Brew",
-      backText: "I still remember your order: Iced Oat Latte, two pumps of vanilla."
+      caption: "\"Happy Birthday\"",
+      backText: "I feel so special that I got to spend your birthday with you. I want to celebrate your birthday for the rest of my life."
     },
     {
       image: "/photos/polaraoid5.png",
-      caption: "Morning Brew",
-      backText: "I still remember your order: Iced Oat Latte, two pumps of vanilla."
+      caption: "\"Boba\"",
+      backText: "You look so hot drinking boba. I love the way your eyes look."
     },
     {
-      image: "/photos/polaraoid2.png",
-      caption: "Morning Brew",
-      backText: "I still remember your order: Iced Oat Latte, two pumps of vanilla."
+      image: "/photos/polaroid2.png",
+      caption: "\"Bread\"",
+      backText: "lol remember when i spent $8.50 on water"
     },
     {
-      image: "/photos/polaraoid3.png",
-      caption: "Morning Brew",
-      backText: "I still remember your order: Iced Oat Latte, two pumps of vanilla."
+      image: "/photos/polaroid3.png",
+      caption: "\"Cinnamaroll\"",
+      backText: "You look so cute. You are the cutest. the cutest EVER"
     },
     {
-      image: "/photos/polaraoid4.png",
-      caption: "Morning Brew",
-      backText: "I still remember your order: Iced Oat Latte, two pumps of vanilla."
+      image: "/photos/polaroid4.png",
+      caption: "\"Car\"",
+      backText: ":3"
     },
     {
-      image: "/photos/polaraoid6.png",
-      caption: "Morning Brew",
-      backText: "I still remember your order: Iced Oat Latte, two pumps of vanilla."
+      image: "/photos/polaroid6.png",
+      caption: "\"Foliage\"",
+      backText: "I love the way the light hits your face. You look so fine omg"
     },
     {
-      image: "/photos/polaraoid7.png",
-      caption: "Morning Brew",
-      backText: "I still remember your order: Iced Oat Latte, two pumps of vanilla."
-    },
+      image: "/photos/polaroid7.png",
+      caption: "\"Cat Jacket\"",
+      backText: "woa eva a CAT woa woa :flooshed:"
+    }
 
     // Add as many as you want...
   ];
@@ -98,5 +98,5 @@
   
   <Carousel {memories} />
   
-  <p class="mt-8 text-sm text-gray-400">Click a card to read the memory</p>
+  <p class="mt-8 text-sm text-gray-400">Flip to read each memory.</p>
 </div>
